@@ -1,24 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_restaurant_apps/model/restaurantdto.dart';
+import 'package:flutter_restaurant_apps/ui/detailrestaurantpage/detailrestaurantpage.dart';
 import 'package:flutter_restaurant_apps/ui/widget/star_rating.dart';
 
 import '../../constants.dart';
 
 
 class RestaurantItem extends StatelessWidget {
-  final String name;
-  final String img;
-  final String description;
-  final String city;
-  final double rating;
-
+  final Restaurants restaurants;
 
   RestaurantItem({
     Key key,
-    @required this.name,
-    @required this.img,
-    @required this.description,
-    @required this.city,
-    @required this.rating})
+    @required this.restaurants,})
       :super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -26,7 +19,13 @@ class RestaurantItem extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(0, 4, 0, 4),
       child: InkWell(
         onTap: (){
-          // Todo Navigation to Detail Restaurant
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (BuildContext context){
+                return RestaurantDetail(restaurants : restaurants);
+              },
+            ),
+          );
         },
         child: Row(
           children: <Widget>[
@@ -38,7 +37,7 @@ class RestaurantItem extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(
-                    img,
+                    restaurants.pictureId,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -49,9 +48,8 @@ class RestaurantItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Text(
-                  "$name",
+                  "${restaurants.name}",
                   style: TextStyle(
-//                    fontSize: 15,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
@@ -67,7 +65,7 @@ class RestaurantItem extends StatelessWidget {
                     ),
                     SizedBox(width: 6.0),
                     Text(
-                      "$rating",
+                      "${restaurants.rating}",
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w300,
@@ -77,7 +75,7 @@ class RestaurantItem extends StatelessWidget {
                 ),
                 SizedBox(width: 6.0),
                 Text(
-                  "$city",
+                  "${restaurants.city}",
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w300,
@@ -85,7 +83,7 @@ class RestaurantItem extends StatelessWidget {
                 ),
                 SizedBox(width: 6.0),
                 Text(
-                  "$description",
+                  "${restaurants.description}",
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

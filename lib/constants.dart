@@ -3,8 +3,6 @@ class Constants{
 
   static String appName = "Whats Food";
 
-  //Colors for theme
-//  Color(0xfffcfcff);
   static Color lightPrimary = Color(0xfffcfcff);
   static Color darkPrimary = Colors.black;
   static Color lightAccent = Color(0xffE26A29);
@@ -12,6 +10,10 @@ class Constants{
   static Color lightBG = Color(0xfffcfcff);
   static Color darkBG = Colors.black;
   static Color ratingBG = Colors.yellow[600];
+  static Color kOrangeSemi = Color(0xFFFFC61F);
+  static Color kBlackSemiColor = Color(0xFF121212);
+
+
 
   static ThemeData lightTheme = ThemeData(
     backgroundColor: lightBG,
@@ -20,6 +22,7 @@ class Constants{
     textSelectionTheme: TextSelectionThemeData(
         selectionHandleColor : lightAccent
     ),
+    cardColor: lightPrimary,
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
       textTheme: TextTheme(
@@ -41,6 +44,7 @@ class Constants{
     primaryColor: darkPrimary,
     accentColor: darkAccent,
     scaffoldBackgroundColor: darkBG,
+    cardColor: kBlackSemiColor,
     textSelectionTheme: TextSelectionThemeData(
         selectionHandleColor : darkAccent
     ),

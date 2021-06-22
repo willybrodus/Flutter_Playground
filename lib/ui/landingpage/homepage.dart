@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_restaurant_apps/model/restaurantdto.dart';
+import 'package:flutter_restaurant_apps/model/restaurantsdto.dart';
 import 'package:flutter_restaurant_apps/ui/widget/restaurant_item.dart';
 
 
@@ -28,11 +29,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin<
               itemBuilder: (BuildContext context, int index) {
                 Restaurants restaurant = restaurantList.restaurants[index];
                 return RestaurantItem(
-                  name: restaurant.name,
-                  img: restaurant.pictureId,
-                  description: restaurant.description,
-                  city: restaurant.city,
-                  rating: restaurant.rating,
+                    restaurants : restaurant
                 );
               },
             );
