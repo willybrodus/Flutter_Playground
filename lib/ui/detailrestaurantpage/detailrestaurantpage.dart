@@ -21,6 +21,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -155,7 +156,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
             SizedBox(height: 15.0),
             Container(
                 child: SizedBox(
-              height: 225,
+              height: size.height * 0.27,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -185,25 +186,25 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
             SizedBox(height: 15.0),
             Container(
                 child: SizedBox(
-                  height: 225,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    primary: false,
-                    physics: AlwaysScrollableScrollPhysics(),
-                    itemCount: restaurants.menus.drinks == null
-                        ? 0
-                        : restaurants.menus.drinks.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      Drinks menu = restaurants.menus.drinks[index];
-                      return MenuItem(
-                          title: menu.name,
-                          svgSrc: index % 2 == 0
-                              ? "assets/icons/beverage_one.svg"
-                              : "assets/icons/beverage_two.svg");
-                    },
-                  ),
-                )),
+              height: size.height * 0.27,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                primary: false,
+                physics: AlwaysScrollableScrollPhysics(),
+                itemCount: restaurants.menus.drinks == null
+                    ? 0
+                    : restaurants.menus.drinks.length,
+                itemBuilder: (BuildContext context, int index) {
+                  Drinks menu = restaurants.menus.drinks[index];
+                  return MenuItem(
+                      title: menu.name,
+                      svgSrc: index % 2 == 0
+                          ? "assets/icons/beverage_one.svg"
+                          : "assets/icons/beverage_two.svg");
+                },
+              ),
+            )),
           ],
         )),
       ),
