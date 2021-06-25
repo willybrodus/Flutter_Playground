@@ -17,6 +17,7 @@ class MenuItem extends StatelessWidget {
     // This size provide you the total height and width of the screen
     Size size = MediaQuery.of(context).size;
     return Container(
+      width: size.width * 0.40,
       margin: EdgeInsets.only(left: 0, right: 15, top: 10, bottom: 10),
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
@@ -46,11 +47,11 @@ class MenuItem extends StatelessWidget {
                   ),
                   child: SvgPicture.asset(
                     svgSrc,
-                    width: size.width * 0.18,
+                    width: size.width * 0.10,
                     // size.width * 0.18 means it use 18% of total width
                   ),
                 ),
-                Text(title),
+                Text(title, textAlign: TextAlign.center,),
                 SizedBox(height: 10),
               ],
             ),
