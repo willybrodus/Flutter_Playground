@@ -48,10 +48,10 @@ class MenuItem extends StatelessWidget {
                   child: SvgPicture.asset(
                     svgSrc,
                     width: size.width * 0.10,
-                    // size.width * 0.18 means it use 18% of total width
+                    // size.width * 0.10 means it use 10% of total width
                   ),
                 ),
-                Text(title, textAlign: TextAlign.center,),
+                Text(title, textAlign: TextAlign.center, maxLines: 2,),
                 SizedBox(height: 10),
               ],
             ),

@@ -156,7 +156,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
             SizedBox(height: 15.0),
             Container(
                 child: SizedBox(
-              height: size.height * 0.30,
+              height: 225,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -186,7 +186,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
             SizedBox(height: 15.0),
             Container(
                 child: SizedBox(
-              height: size.height * 0.30,
+              height: 225,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
