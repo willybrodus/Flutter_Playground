@@ -4,12 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../constants.dart';
 
-class SettingPage extends StatefulWidget {
-  @override
-  _SettingPageState createState() => _SettingPageState();
-}
-
-class _SettingPageState extends State<SettingPage> {
+class SettingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +25,9 @@ class _SettingPageState extends State<SettingPage> {
               ),
             ),
 
-             MediaQuery.of(context).platformBrightness == Brightness.dark
-                 ? SizedBox()
-                 : ListTile(
+            MediaQuery.of(context).platformBrightness == Brightness.dark
+                ? SizedBox()
+                : ListTile(
               title: Text(
                 "Dark Theme",
                 style: TextStyle(

@@ -14,7 +14,6 @@ class MenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // This size provide you the total height and width of the screen
     Size size = MediaQuery.of(context).size;
     return Container(
       width: size.width * 0.40,

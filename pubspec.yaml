@@ -24,12 +24,23 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.0
+  cupertino_icons: ^1.0.2
   flutter_svg: ^0.22.0
   shared_preferences: ^0.5.4+5
   font_awesome_flutter: ^8.5.0
-  provider: ^4.0.1
-
+  provider: ^5.0.0
+  #network
+  cached_network_image: ^3.0.0
+  http: ^0.13.3
+  #localization
+  intl: ^0.17.0
+  #alarm manager - notif
+  android_alarm_manager: ^2.0.0
+  flutter_local_notifications: ^5.0.0
+  #RxDart
+  rxdart: ^0.27.1
+  #finding commonly used locations on the filesystem
+  path_provider: ^2.0.2
 
 dev_dependencies:
   flutter_test:

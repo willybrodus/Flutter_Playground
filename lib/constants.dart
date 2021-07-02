@@ -32,9 +32,6 @@ class Constants{
           fontWeight: FontWeight.w800,
         ),
       ),
-//      iconTheme: IconThemeData(
-//        color: lightAccent,
-//      ),
     ),
   );
 
@@ -56,9 +53,6 @@ class Constants{
           fontWeight: FontWeight.w800,
         ),
       ),
-//      iconTheme: IconThemeData(
-//        color: darkAccent,
-//      ),
     ),
   );
 
