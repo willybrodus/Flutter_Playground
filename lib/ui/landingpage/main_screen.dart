@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_restaurant_apps/ui/landingpage/favoritepage.dart';
+import 'package:flutter_restaurant_apps/ui/landingpage/favorite_page.dart';
+import 'package:flutter_restaurant_apps/ui/landingpage/search_page.dart';
 import 'package:flutter_restaurant_apps/ui/landingpage/setting.dart';
 
 import '../../constants.dart';
-import 'homepage.dart';
+import 'home_page.dart';
 
 
 class LandingPage extends StatefulWidget {
@@ -19,7 +20,7 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: ()=>Future.value(false),
+      onWillPop: ()=> _onWillPop(),
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -37,6 +38,7 @@ class _LandingPageState extends State<LandingPage> {
           children: <Widget>[
             HomePage(),
             FavoritePage(),
+            SearchPage(),
             SettingPage()
           ],
         ),
@@ -74,8 +76,8 @@ class _LandingPageState extends State<LandingPage> {
               ),
 
               IconButton(
-                icon: Icon(
-                  Icons.person,
+                icon:Icon(
+                  Icons.search,
                   size: 24.0,
                 ),
                 color: _page == 2
@@ -83,7 +85,20 @@ class _LandingPageState extends State<LandingPage> {
                     : Theme
                     .of(context)
                     .textTheme.caption.color,
-                onPressed: ()=>_pageController.jumpToPage(4),
+                onPressed: ()=>_pageController.jumpToPage(2),
+              ),
+
+              IconButton(
+                icon: Icon(
+                  Icons.person,
+                  size: 24.0,
+                ),
+                color: _page == 3
+                    ? Theme.of(context).accentColor
+                    : Theme
+                    .of(context)
+                    .textTheme.caption.color,
+                onPressed: ()=>_pageController.jumpToPage(3),
               ),
 
               SizedBox(width:7),
@@ -116,5 +131,29 @@ class _LandingPageState extends State<LandingPage> {
     setState(() {
       this._page = page;
     });
+  }
+
+  Future<bool> _onWillPop() async {
+    return (await showDialog(
+      context: context,
+      builder: (context) => new AlertDialog(
+        title: new Text('Are you sure?'),
+        content: new Text('Do you want to exit an App'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: new Text('No', style: TextStyle(
+              color: Theme.of(context).accentColor
+            ),),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: new Text('Yes', style: TextStyle(
+                color: Theme.of(context).accentColor
+            ),),
+          ),
+        ],
+      ),
+    )) ?? false;
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_restaurant_apps/providers/app_provider.dart';
+import 'package:flutter_restaurant_apps/providers/theme_app_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants.dart';
@@ -37,15 +37,15 @@ class SettingPage extends StatelessWidget {
               ),
 
               trailing: Switch(
-                value: Provider.of<AppProvider>(context).theme == Constants.lightTheme
+                value: Provider.of<ThemeAppProvider>(context).theme == Constants.lightTheme
                     ? false
                     : true,
                 onChanged: (v) async{
                   if (v) {
-                    Provider.of<AppProvider>(context, listen: false)
+                    Provider.of<ThemeAppProvider>(context, listen: false)
                         .setTheme(Constants.darkTheme, "dark");
                   } else {
-                    Provider.of<AppProvider>(context, listen: false)
+                    Provider.of<ThemeAppProvider>(context, listen: false)
                         .setTheme(Constants.lightTheme, "light");
                   }
                 },

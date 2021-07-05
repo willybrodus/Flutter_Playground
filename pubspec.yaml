@@ -32,11 +32,6 @@ dependencies:
   #network
   cached_network_image: ^3.0.0
   http: ^0.13.3
-  #localization
-  intl: ^0.17.0
-  #alarm manager - notif
-  android_alarm_manager: ^2.0.0
-  flutter_local_notifications: ^5.0.0
   #RxDart
   rxdart: ^0.27.1
   #finding commonly used locations on the filesystem
@@ -50,5 +45,4 @@ flutter:
 
   assets:
     - assets/icons/
-    - assets/data/
 

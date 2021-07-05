@@ -13,8 +13,6 @@ class Constants{
   static Color kOrangeSemi = Color(0xFFFFC61F);
   static Color kBlackSemiColor = Color(0xFF121212);
 
-
-
   static ThemeData lightTheme = ThemeData(
     backgroundColor: lightBG,
     primaryColor: lightPrimary,
@@ -56,5 +54,11 @@ class Constants{
     ),
   );
 
-
+  static const String BASE_URL = 'https://restaurant-api.dicoding.dev/';
+  static const String IMG_SMALL_URL = BASE_URL + "images/small/";
+  static const String IMG_MEDIUM_URL = BASE_URL + "images/medium/";
+  static const String IMG_LARGE_URL = BASE_URL + "images/large/";
+  static const String BOX_FAVORITES = "favorites";
+  static const String failed_get_data = "Failed to get the data, try again later";
+  static const String failed_post_review = "Failed to send review, try again later";
 }

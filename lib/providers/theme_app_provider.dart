@@ -5,11 +5,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants.dart';
 
-class AppProvider extends ChangeNotifier{
-  AppProvider(){
+class ThemeAppProvider extends ChangeNotifier{
+  ThemeAppProvider(){
     checkTheme();
   }
-
 
   ThemeData theme = Constants.lightTheme;
   Key key = UniqueKey();
