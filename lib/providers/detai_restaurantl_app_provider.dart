@@ -2,10 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_restaurant_apps/data/model/local/restaurant_dto.dart';
 import 'package:flutter_restaurant_apps/data/result_state.dart';
 import 'package:flutter_restaurant_apps/data/source/api/api_service.dart';
+import 'package:flutter_restaurant_apps/data/source/db/db_service.dart';
 
 class DetailRestaurantProvider extends ChangeNotifier {
 
   final ApiService apiService = ApiService();
+  final DbService dbService = DbService();
   RestaurantDto _responseDetailRestaurant;
   ResultState _state;
   String _message;

@@ -28,6 +28,28 @@ class _LandingPageState extends State<LandingPage> {
           title: Text(
             Constants.appName,
           ),
+          actions: <Widget>[
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                  onTap: () {
+                    FocusScope.of(context).unfocus();
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context){
+                          return FavoritePage();
+                        },
+                      ),
+                    );
+                  },
+                  child: Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                    size: 26.0,
+                  ),
+                )
+            )
+          ],
           elevation: 0.0,
         ),
 
@@ -37,7 +59,6 @@ class _LandingPageState extends State<LandingPage> {
           onPageChanged: onPageChanged,
           children: <Widget>[
             HomePage(),
-            FavoritePage(),
             SearchPage(),
             SettingPage()
           ],
@@ -64,7 +85,7 @@ class _LandingPageState extends State<LandingPage> {
 
               IconButton(
                 icon:Icon(
-                  Icons.favorite,
+                  Icons.search,
                   size: 24.0,
                 ),
                 color: _page == 1
@@ -76,8 +97,8 @@ class _LandingPageState extends State<LandingPage> {
               ),
 
               IconButton(
-                icon:Icon(
-                  Icons.search,
+                icon: Icon(
+                  Icons.person,
                   size: 24.0,
                 ),
                 color: _page == 2
@@ -86,19 +107,6 @@ class _LandingPageState extends State<LandingPage> {
                     .of(context)
                     .textTheme.caption.color,
                 onPressed: ()=>_pageController.jumpToPage(2),
-              ),
-
-              IconButton(
-                icon: Icon(
-                  Icons.person,
-                  size: 24.0,
-                ),
-                color: _page == 3
-                    ? Theme.of(context).accentColor
-                    : Theme
-                    .of(context)
-                    .textTheme.caption.color,
-                onPressed: ()=>_pageController.jumpToPage(3),
               ),
 
               SizedBox(width:7),

@@ -4,6 +4,7 @@ import 'package:flutter_restaurant_apps/data/model/local/menu_dto.dart';
 import 'package:flutter_restaurant_apps/data/model/local/restaurant_dto.dart';
 import 'package:flutter_restaurant_apps/data/result_state.dart';
 import 'package:flutter_restaurant_apps/providers/detai_restaurantl_app_provider.dart';
+import 'package:flutter_restaurant_apps/ui/widget/favorite_button.dart';
 import 'package:flutter_restaurant_apps/ui/widget/menu_item.dart';
 import 'package:flutter_restaurant_apps/ui/widget/star_rating.dart';
 import 'package:provider/provider.dart';
@@ -79,10 +80,8 @@ class RestaurantDetail extends StatelessWidget {
                                     elevation: 4.0,
                                     child: Padding(
                                       padding: EdgeInsets.all(5),
-                                      child: Icon(
-                                        Icons.favorite_border,
-                                        color: Colors.red,
-                                        size: 17,
+                                      child: FavoriteButton(
+                                        restaurant: restaurant
                                       ),
                                     ),
                                   ),

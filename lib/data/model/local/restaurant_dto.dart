@@ -1,10 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_restaurant_apps/data/model/local/review_dto.dart';
+import 'package:hive/hive.dart';
 
 import '../../../constants.dart';
 import 'categories_dto.dart';
 import 'menus_dto.dart';
 
+part 'restaurant_dto.g.dart';
+
+@HiveType(typeId: 0)
 class RestaurantDto {
   RestaurantDto(
       {@required this.id,
@@ -18,15 +22,25 @@ class RestaurantDto {
       this.menus,
       this.customerReviews});
 
+  @HiveField(0)
   String id;
+  @HiveField(1)
   String name;
+  @HiveField(2)
   String description;
+  @HiveField(3)
   String pictureId;
+  @HiveField(4)
   String address;
+  @HiveField(5)
   String city;
+  @HiveField(6)
   double rating;
+  @HiveField(7)
   List<CategoriesDto> categories;
+  @HiveField(8)
   MenusDto menus;
+  @HiveField(9)
   List<ReviewDto> customerReviews;
 
   factory RestaurantDto.fromJson(Map<String, dynamic> json) => RestaurantDto(

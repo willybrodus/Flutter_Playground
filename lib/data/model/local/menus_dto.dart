@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 import 'menu_dto.dart';
 
+part 'menus_dto.g.dart';
+
+@HiveType(typeId: 1)
 class MenusDto {
   MenusDto({
     @required this.foods,
     @required this.drinks,
   });
 
+  @HiveField(0)
   List<MenuDto> foods;
+  @HiveField(1)
   List<MenuDto> drinks;
 
   factory MenusDto.fromJson(Map<String, dynamic> json) => MenusDto(

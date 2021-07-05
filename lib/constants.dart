@@ -61,4 +61,6 @@ class Constants{
   static const String BOX_FAVORITES = "favorites";
   static const String failed_get_data = "Failed to get the data, try again later";
   static const String failed_post_review = "Failed to send review, try again later";
+  static const String DB_NAME_FAVORITES = "dbfavorites";
+
 }

@@ -1,10 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter_restaurant_apps/constants.dart';
-import 'package:flutter_restaurant_apps/data/model/local/review_dto.dart';
 import 'package:flutter_restaurant_apps/data/model/response/restaurant_detail_dto.dart';
 import 'package:flutter_restaurant_apps/data/model/response/restaurants_dto.dart';
-import 'package:flutter_restaurant_apps/data/model/response/reviews_dto.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {

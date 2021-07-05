@@ -1,5 +1,9 @@
 import 'package:flutter/foundation.dart';
+import 'package:hive/hive.dart';
 
+part 'categories_dto.g.dart';
+
+@HiveType(typeId: 3)
 class CategoriesDto {
   CategoriesDto({@required this.name});
 

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_restaurant_apps/data/model/local/restaurant_dto.dart';
+import 'package:flutter_restaurant_apps/providers/favorite_app_provider.dart';
 import 'package:flutter_restaurant_apps/ui/detailrestaurantpage/detail_restaurant_page.dart';
 import 'package:flutter_restaurant_apps/ui/widget/star_rating.dart';
 
@@ -8,11 +9,10 @@ import '../../constants.dart';
 
 class RestaurantItem extends StatelessWidget {
   final RestaurantDto restaurant;
+  final FavoritePageProvider provider;
 
-  RestaurantItem({
-    Key key,
-    @required this.restaurant,
-  }) : super(key: key);
+  RestaurantItem({Key key, @required this.restaurant, this.provider})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +23,11 @@ class RestaurantItem extends StatelessWidget {
           FocusScope.of(context).unfocus();
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (BuildContext context){
-                return RestaurantDetail(restaurant : restaurant);
+              builder: (BuildContext context) {
+                return RestaurantDetail(restaurant: restaurant);
               },
             ),
-          );
+          ).then((value) => provider?.getListFavoriteRestaurant());
         },
         child: Row(
           children: <Widget>[
@@ -44,7 +44,8 @@ class RestaurantItem extends StatelessWidget {
                     height: 140,
                     fit: BoxFit.cover,
                     progressIndicatorBuilder: (context, data, _) => Center(
-                      child: CircularProgressIndicator(color: Theme.of(context).accentColor),
+                      child: CircularProgressIndicator(
+                          color: Theme.of(context).accentColor),
                       widthFactor: 0.5,
                     ),
                   ),
